@@ -1,0 +1,44 @@
+package Selenium;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class ReadData {
+
+	public static String GetCellValue(String filename, int row, int col) throws IOException {
+
+		String filepath = "D:\\SeleniumPractice\\ReadData\\" + filename + ".xlsx";
+		FileInputStream instream = new FileInputStream(filepath);
+		XSSFWorkbook book = new XSSFWorkbook(instream);
+		XSSFSheet sheet = book.getSheet("sheet1");
+		String data = sheet.getRow(row).getCell(col).getStringCellValue();
+		return data;
+
+	}
+
+	public static List<String> GetCellValue(String filename, int row) throws IOException {
+		List<String> rowdata = new ArrayList();
+		String filepath = "D:\\SeleniumPractice\\ReadData\\" + filename + ".xlsx";
+		FileInputStream instream = new FileInputStream(filepath);
+		XSSFWorkbook book = new XSSFWorkbook(instream);
+		XSSFSheet sheet = book.getSheet("sheet1");
+		int cellscount = sheet.getRow(row).getLastCellNum();
+		for (int i = 0; i < cellscount; i++) {
+			String data = sheet.getRow(row).getCell(i).getStringCellValue();
+			rowdata.add(data);
+		}
+		return rowdata;
+	}
+
+	public static void main(String[] args) throws IOException {
+		String data = ReadData.GetCellValue("info", 1, 0);
+		System.out.println(data);
+         List<String> data1=ReadData.GetCellValue("info", 2);
+         System.out.println(data1);
+	}
+}

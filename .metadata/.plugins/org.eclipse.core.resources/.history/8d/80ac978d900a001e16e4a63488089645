@@ -1,0 +1,23 @@
+package oops;
+
+public  class SamsungPhone extends Phone {
+
+	
+
+	@Override
+	public void call() {
+		
+		
+	}
+
+	@Override
+	public void Message() {
+		
+		
+	}
+
+	@Override
+	public void camera() {
+				
+	}
+}

@@ -1,0 +1,13 @@
+package oops;
+
+public class ClassB extends ClassA{
+
+	public void print() {
+		System.out.println("printing.....");
+	}
+	public static void main(String[] args) {
+		ClassB b=new ClassB();
+		b.print();
+		b.display();
+	}
+}

@@ -1,0 +1,17 @@
+package oops;
+
+public class Constructor {
+	public String name;
+	public int rollNo;
+
+	Constructor(String name, int rollNo) {
+		this.name = name;
+		this.rollNo = rollNo;
+	}
+
+	public static void main(String[] args) {
+		Constructor c= new Constructor("vasu", 1);
+		Constructor c1=new Constructor("srinivas",2);
+	}
+
+}

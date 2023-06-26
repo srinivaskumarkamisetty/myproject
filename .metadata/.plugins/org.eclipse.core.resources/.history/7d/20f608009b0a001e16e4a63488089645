@@ -1,0 +1,8 @@
+package oops;
+
+public class ClassB extends ClassA{
+
+	public void print() {
+		System.out.println("printing.....");
+	}
+}

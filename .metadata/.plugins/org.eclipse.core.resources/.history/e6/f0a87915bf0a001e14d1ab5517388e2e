@@ -1,0 +1,11 @@
+package oops;
+
+public class MethodOverRiding {
+
+	
+	public void m1() {
+		System.out.println("parentMethod");
+	}
+	
+	
+}

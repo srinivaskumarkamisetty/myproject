@@ -1,0 +1,8 @@
+package oops;
+
+public class ClassA {
+
+	private void display() {
+		System.out.println("display");
+	}
+}

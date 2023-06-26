@@ -1,0 +1,119 @@
+package com.tutorials.qa.utilities;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class ReadExcelData {
+
+	public void getRow(String filename, int row) throws IOException {
+		String filepath = "D:\\SeleniumPractice - Copy\\TutorialsNinja\\data\\" + filename + ".xlsx";
+		FileInputStream instream = new FileInputStream(filepath);
+		XSSFWorkbook workbook = new XSSFWorkbook(instream);
+		XSSFSheet sheet = workbook.getSheet("sheet1");
+		XSSFRow rowdata = sheet.getRow(row);
+		int cell = rowdata.getLastCellNum();
+
+		for (int c = 0; c < cell; c++) {
+
+			XSSFCell col = rowdata.getCell(c);
+
+			switch (col.getCellType()) {
+
+			case STRING:
+				System.out.println(col.getStringCellValue());
+				break;
+
+			case NUMERIC:
+				System.out.println(col.getNumericCellValue());
+				break;
+
+			case BOOLEAN:
+				System.out.println(col.getBooleanCellValue());
+				break;
+
+			default:
+				break;
+
+			}
+		}
+
+	}
+
+	public void getcellvalue(String filename, int row, int col) throws IOException {
+		String filepath = "D:\\SeleniumPractice - Copy\\TutorialsNinja\\data\\" + filename + ".xlsx";
+		FileInputStream instream = new FileInputStream(filepath);
+		XSSFWorkbook workbook = new XSSFWorkbook(instream);
+		XSSFSheet sheet = workbook.getSheet("sheet1");
+		XSSFCell cell = sheet.getRow(row).getCell(col);
+		switch (cell.getCellType()) {
+
+		case STRING:
+			System.out.println(cell.getStringCellValue());
+			break;
+
+		case NUMERIC:
+			System.out.println(cell.getNumericCellValue());
+			break;
+
+		case BOOLEAN:
+			System.out.println(cell.getBooleanCellValue());
+			break;
+
+		default:
+			break;
+
+		}
+	}
+
+	public void getdata(String filename) throws IOException {
+
+		String filepath = "D:\\SeleniumPractice - Copy\\TutorialsNinja\\data\\" + filename + ".xlsx";
+		FileInputStream instream = new FileInputStream(filepath);
+		XSSFWorkbook workbook = new XSSFWorkbook(instream);
+		XSSFSheet sheet = workbook.getSheet("sheet1");
+		int row = sheet.getLastRowNum();
+		int col = sheet.getRow(1).getLastCellNum();
+
+		for (int r = 0; r <= row; r++) {
+			XSSFRow rows = sheet.getRow(r);
+
+			for (int c = 0; c <col; c++) {
+				XSSFCell cell = rows.getCell(c);
+				switch (cell.getCellType()) {
+				case STRING:
+					System.out.println(cell.getStringCellValue());
+					break;
+
+				case NUMERIC:
+					System.out.println(cell.getNumericCellValue());
+					break;
+
+				case BOOLEAN:
+					System.out.println(cell.getBooleanCellValue());
+					break;
+
+				default:
+					break;
+				}
+			}
+
+		}
+	}
+
+	public static void main(String[] args) throws IOException {
+		ReadExcelData data = new ReadExcelData();
+		data.getRow("info1", 2);
+
+		System.out.println("getcellvalue:::::");
+		data.getcellvalue("info1", 2, 1);
+
+		System.out.println();
+		data.getdata("info1");
+	}
+
+}

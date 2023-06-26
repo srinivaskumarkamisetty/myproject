@@ -1,0 +1,16 @@
+package javaPractice;
+
+public class countWordsInString {
+	public static void main(String[] args) {
+
+		String word = "vasuk";
+		int count = 0;
+
+		for (int i = 0; i < word.length(); i++) {
+
+			count++;
+
+		}
+		 System.out.println(count);
+	}
+}

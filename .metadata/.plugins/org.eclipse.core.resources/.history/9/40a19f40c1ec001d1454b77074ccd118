@@ -1,0 +1,29 @@
+package Selenium;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+
+public class ReadData {
+
+	
+	public static String GetCellValue(String filename, int row , int col) throws IOException {
+		
+		String filepath="D:\\SeleniumPractice\\ReadData\\"+filename+".xlsx";
+		FileInputStream instream=new FileInputStream(filepath);
+		XSSFWorkbook book=new XSSFWorkbook(instream);
+		XSSFSheet sheet=book.getSheet("sheet1");
+		String data=sheet.getRow(row).getCell(col).getStringCellValue();
+		return data;
+	
+		
+	}
+	public static void main(String[] args) throws IOException {
+		String data=ReadData.GetCellValue("info", 1, 0);
+		System.out.println(data);
+		
+	}
+}

@@ -1,0 +1,21 @@
+package oops;
+
+public class MethodOverloading {
+
+	public void m1() {
+		System.out.println("m1 method");
+	}
+
+	public void m1(int a) {
+		System.out.println("Integer method");
+	}
+
+	public void m1(String b) {
+		System.out.println("String method");
+	}
+	public static void main(String[] args) {
+		MethodOverloading m=new MethodOverloading();
+		m.m1(10);
+		m.m1('a');
+	}
+}

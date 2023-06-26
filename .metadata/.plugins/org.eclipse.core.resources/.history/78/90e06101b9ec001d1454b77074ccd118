@@ -1,0 +1,9 @@
+package Selenium;
+
+public class ReadData {
+
+	
+	public void GetCellValue(String filename, int row , int col) {
+		
+	}
+}

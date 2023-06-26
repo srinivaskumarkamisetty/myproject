@@ -1,0 +1,16 @@
+package Selenium;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+public class ReadData {
+
+	
+	public void GetCellValue(String filename, int row , int col) throws FileNotFoundException {
+		
+		String filepath="D:\\SeleniumPractice\\ReadData\\"+filename+".xlsx";
+		FileInputStream instream=new FileInputStream(filepath);
+		XSSFWorkbook book=new XSSFWorkbook(instream);
+		
+	}
+}

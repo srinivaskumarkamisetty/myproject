@@ -1,0 +1,19 @@
+package Selenium;
+
+import java.io.File;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+
+import com.weicoder.common.io.FileUtil;
+
+public class Screenshot {
+
+public static void TakeScreenShot(WebDriver driver,String Imagename) {
+	TakesScreenshot ts=(TakesScreenshot)driver;
+	File f=ts.getScreenshotAs(OutputType.FILE);
+	File s=new File("E:\\Screenshots\\"+Imagename+".png");
+	FileUtil.copy(f, s);
+}
+}

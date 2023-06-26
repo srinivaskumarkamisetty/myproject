@@ -1,0 +1,16 @@
+package oops;
+
+public class MethodOverRiding2 extends MethodOverRiding{
+
+	
+	public  void m1() {
+		System.out.println("child method");
+	}
+	public static void main(String[] args) {
+		MethodOverRiding2 m=new MethodOverRiding2();
+		m.m1();
+		
+		MethodOverRiding m1=new MethodOverRiding2();
+		m1.m1();
+	}
+}
